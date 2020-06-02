@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "monster1Attack",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.0333333333333334,
+  "sample": 30,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "02b4f422-228c-4e57-acfc-65d828a6b8ac"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "6289e62e-f8c1-430f-80ab-ca458ef2d90c"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "045252c9-bc87-4c29-abc1-43c1ef8191d3"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "f8449301-a3b8-433c-82e2-fd89f623da28"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "f15dfdc3-6b9e-4853-8cef-923a68df9132"
+            }
+          },
+          {
+            "frame": 0.8333333333333334,
+            "value": {
+              "__uuid__": "7a380a30-621e-49a9-84ba-392336ca94c8"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "5f1bcde0-ebda-41af-93d0-56bb19aebc2d"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

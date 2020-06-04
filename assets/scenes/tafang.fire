@@ -183,7 +183,7 @@
       "array": [
         0,
         0,
-        314.46466528907575,
+        279.4014458959545,
         0,
         0,
         0,
@@ -827,7 +827,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": true,
     "enabledContactListener": false,
-    "bullet": false,
+    "bullet": true,
     "awakeOnLoad": true,
     "_id": "96s8zeZ2dIVo7g1f5Kjqg0"
   },
@@ -953,7 +953,9 @@
     "monster1Prefab": {
       "__uuid__": "fa3e1f39-05f5-430e-a1a4-155ec15a281c"
     },
-    "monster2Prefab": null,
+    "monster2Prefab": {
+      "__uuid__": "d332b8a6-c28f-4f33-8061-27b0ab39a120"
+    },
     "_id": "9ep/nEr+5Bfq/btz5GURB0"
   },
   {
@@ -1363,12 +1365,8 @@
       "__id__": 2
     },
     "_enabled": true,
-    "monsters": {
-      "__id__": 22
-    },
-    "king": {
-      "__id__": 10
-    },
+    "monsters": null,
+    "king": null,
     "ground": {
       "__id__": 5
     },

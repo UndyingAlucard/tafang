@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "monster2Attack",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.0333333333333334,
+  "sample": 30,
+  "speed": 20,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "257a4a4d-3465-4c24-a77c-ddf4371daa6f"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "23758034-f4d5-431f-8042-16f715944fe0"
+            }
+          },
+          {
+            "frame": 0.7,
+            "value": {
+              "__uuid__": "f915ed14-4ecc-491f-bf25-4bdcc0fdc941"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "257a4a4d-3465-4c24-a77c-ddf4371daa6f"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

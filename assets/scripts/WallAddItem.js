@@ -86,6 +86,8 @@ cc.Class({
         //将该节点放在节点Walls下面
         newWallNode.parent = this.Scence.getChildByName("Canvas").getChildByName("Walls");
         newWallNode.getComponent(newWallNode.name).game = this;
+        //onLoad()只会执行一次，每生成一个新的坚塔，血量重新赋值,wall的组件中只有HPNow变量值在不断改变着
+        newWallNode.getComponent(newWallNode.name).HPNow = newWallNode.getComponent(newWallNode.name).HP;
         //设置生成的坐标
         newWallNode.setPosition(this.nodePos);
         this.node.setPosition(this.startPos);

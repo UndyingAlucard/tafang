@@ -2,6 +2,7 @@
 //初始化不同种类的怪物，将怪物预制节点放入对象池，每一个关卡生成一定量的m1怪物
 
 const Monster1 = require('Monster1');
+const Monster2 = require("Monster2");
 
 cc.Class({
     extends: cc.Component,
@@ -29,6 +30,8 @@ cc.Class({
     onLoad: function () {
         this.monster1Pool = new cc.NodePool('Monster1');
         this.monster1Count = 0; //计数Monster1的个数
+        this.monster2Pool = new cc.NodePool("Monster2");
+        this.monster2Count = 0;
         
         this.monsterPoolSize = 8; //对象池的大小
         this.leftBornDirection  = 0;
@@ -40,26 +43,31 @@ cc.Class({
     //初始化对象池
     monsterPoolInit: function () {
         var m1Node = null;
+        var m2Node = null;
         for (var i = 0; i < this.monsterPoolSize; i++) {
             m1Node = cc.instantiate(this.monster1Prefab);
+            m2Node = cc.instantiate(this.monster2Prefab);
             this.monster1Pool.put(m1Node);
+            this.monster2Pool.put(m2Node);
         }
     },
 
     start: function () {
         //怪物的出场方式，如何出怪
-        this.spawnMonster1(this.rightBornDirection);
-        this.schedule(function () {
-            this.spawnMonster1(this.leftBornDirection);
+        //this.spawnMonster1(this.rightBornDirection);
+        this.spawnMonster2(this.rightBornDirection);
+        this.scheduleOnce(function () {
+            this.spawnMonster2(this.leftBornDirection);
             this.spawnMonster1(this.rightBornDirection);
-        }, 90, 5, 90);
+         }, 30);
+
+         this.despawnMonster1(this.leftBornDirection);
         
         /*
         this.schedule(function () {
             this.spawnMonster1(this.leftBornDirection);
             this.spawnMonster1(this.rightBornDirection);
-            
-        }, 1, 2, 5); //5秒后开始计时，每1秒执行一次回调，执行1+2次（左右两边各出3只Monster1）
+        }, 90, 5, 90);
         */
     },
 
@@ -80,9 +88,29 @@ cc.Class({
         newM1Node.getComponent('Monster1').game = this; //在monster1中引用这个实例
         //newM1Node.getComponent('Monster1').m1MoveStart();
     },
+    //生成Monster2，从Monster2对象池中请求一个对象
+    spawnMonster2: function (mDirection) {
+        var newM2Node = null;
+        //生成一个monster2怪物
+        if (this.monster2Pool.size() > 0) {
+            newM2Node = this.monster2Pool.get(this);
+        } else {
+            newM2Node = cc.instantiate(this.monster2Prefab);
+        }
+
+        this.monster2Count ++;
+        //放入monsters节点下
+        this.node.addChild(newM2Node);
+        newM2Node.setPosition(this.getGroundPosition(mDirection, newM2Node));
+        newM2Node.getComponent("Monster2").game = this;
+    },
 
     despawnMonster1: function (m1) {
         this.monster1Pool.put(m1);
+    },
+
+    despawnMonster2: function (m2) {
+        this.monster2Pool.put(m2);
     },
 
     //获取地上怪物的出生坐标
